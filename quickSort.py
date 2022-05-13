@@ -12,12 +12,19 @@ def partition(arr, low, high):
     return j
 
 
-def quickSort(arr, low, high):
+def quicksort(arr, low, high):
     if low < high:
         pivot = partition(arr, low, high)
-        quickSort(arr, low, pivot)
-        quickSort(arr, pivot + 1, high)
+        quicksort(arr, low, pivot)
+        quicksort(arr, pivot + 1, high)
     return arr
 
-arr_test = quickSort([5,12312,123,12,1,33,2], 0, 6)
-print(arr_test)
+
+def quick_sort(arr):
+    return quicksort(arr, 0, len(arr) - 1)
+
+
+test_arr = [5, 1, 23, 3, 1, 2, 3, 1, 123, 324, 51123, 23, 1, 1, 2, 3, 4, 5]
+test_arr = quick_sort(test_arr)
+print(test_arr)
+
