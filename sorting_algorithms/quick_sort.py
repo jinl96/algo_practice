@@ -1,5 +1,6 @@
-def partition(arr, low, high):
+def partition(low, high, arr):
     pivot = arr[low]
+
     i, j = low, high
 
     while i < j:
@@ -8,20 +9,22 @@ def partition(arr, low, high):
         while i < j and arr[i] <= pivot:
             i += 1
         arr[i], arr[j] = arr[j], arr[i]
+
     arr[low], arr[j] = arr[j], arr[low]
     return j
 
 
-def quicksort(arr, low, high):
+def quick_sort_helper(low, high, arr):
     if low < high:
-        pivot = partition(arr, low, high)
-        quicksort(arr, low, pivot)
-        quicksort(arr, pivot + 1, high)
+        pivot = partition(low, high, arr)
+        quick_sort_helper(low, pivot, arr)
+        quick_sort_helper(pivot+1, high, arr)
     return arr
 
 
 def quick_sort(arr):
-    return quicksort(arr, 0, len(arr) - 1)
+    return quick_sort_helper(0, len(arr)-1, arr)
+
 
 
 test_arr = [5, 1, 23, 3, 1, 2, 3, 1, 123, 324, 51123, 23, 1, 1, 2, 3, 4, 5]
