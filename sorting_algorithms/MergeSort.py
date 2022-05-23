@@ -5,10 +5,6 @@ def merge(left, right):
             result.append(left.pop(0))
         else:
             result.append(right.pop(0))
-    # while left:
-    #     result.append(left.pop(0))
-    # while right:
-    #     result.append(right.pop(0))
     arr_non_empty = left if left else right  # equivalent expression vs above
     while arr_non_empty:
         result.append(arr_non_empty.pop(0))
