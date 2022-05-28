@@ -1,15 +1,13 @@
 def partition(low, high, arr):
     i, j = low, high
-
     while i < j:
-        while i < j and arr[j] >= arr[low]:
+        while arr[j] >= arr[low] and i < j:
             j -= 1
-        while i < j and arr[i] <= arr[low]:
+        while arr[i] <= arr[low] and i < j:
             i += 1
         arr[i], arr[j] = arr[j], arr[i]
     arr[low], arr[j] = arr[j], arr[low]
     return j
-
 
 def quick_sort(arr, low=None, high=None, dsc=False):
     if len(arr) < 2:
@@ -58,3 +56,4 @@ test_arr = [5, 1, 23, 3, 1, 2, 3, 1, 123, 324, 51123, 23, 1, 1, 2, 3, 4, 5]
 des_arr = quick_sort(test_arr)
 # print(test_arr)
 print(des_arr)
+
